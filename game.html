@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MorAI - AI Learning for Kids</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: url('https://source.unsplash.com/1600x900/?kids,fun') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        #menu {
+            position: absolute;
+            top: 60px;
+            right: 0;
+            background: rgba(140, 248, 113, 0.9);
+            border-radius: 10px;
+            display: none;
+            z-index: 100;
+        }
+
+        #menu.show {
+            display: block;
+        }
+
+        .progress-bar {
+            height: 1rem;
+            background-color: #f3f4f6;
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background-color: #10b981;
+            width: 0;
+            transition: width 0.4s ease-in-out;
+        }
+
+        .fun-animation {
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+    </style>
+</head>
+<body class="bg-blue-50 text-gray-800 transition-colors duration-300" id="theme">
+    <!-- Header -->
+    <header class="p-6 bg-yellow-400 shadow-lg flex justify-between items-center relative rounded-b-3xl">
+        <img src="icon2.png" alt="MorAI Logo" class="h-11">
+        <div class="flex items-center space-x-6">
+            <button id="theme-toggle" class="text-2xl text-gray-800 focus:outline-none">🌙</button>
+            <button id="menu-toggle" class="text-2xl text-gray-800 focus:outline-none">☰</button>
+        </div>
+        <nav id="menu" class="p-4 w-48 shadow-lg rounded-lg">
+            <ul class="flex flex-col space-y-3">
+                <li><a href="index.html" class="hover:text-pink-500 block">Home</a></li>
+                <li><a href="game.html" class="hover:text-pink-500 block">morAI's Lab</a></li>
+                <li><a href="quiz.html" class="hover:text-pink-500 block">morAI's Tale</a></li>
+                <li><a href="developers.html" class="hover:text-pink-500 block">Meet the Developers</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+
+    <div class="container mx-auto py-8 px-4">
+        <div id="quiz-container" class="text-center">
+            <h2 class="text-3xl font-semibold mb-4">Welcome to morAI Quiz!</h2>
+            <button onclick="startQuiz()" class="px-10 py-5 bg-yellow-500 text-white font-bold rounded-lg hover:bg-yellow-600">
+                Start Quiz
+            </button>
+
+            <div class="mt-8">
+                <div class="progress-bar mb-4">
+                    <div id="progress-fill" class="progress-fill"></div>
+                </div>
+                <p class="question text-xl"></p>
+                <div id="options" class="mt-4"></div>
+                <p class="lives text-lg"> <span id="hearts">❤❤❤</span></p>
+                <p id="timer" class="text-xl"></p>
+            </div>
+        </div>
+
+        <!-- Button for Visit MorAI Quizzes -->
+        <div class="text-center mt-10">
+            <a href="quiz.html" class="px-3 py-2 bg-yellow-700 text-white font-bold rounded-lg hover:bg-yellow-600 text-xl inline-block">
+                Visit MorAI'S TALE &rarr;
+            </a>
+        </div>
+    </div>
+
+    <div class="container mx-auto py-8 px-4 text-center mt-12">
+        <h2 class="text-3xl font-semibold mb-4">More AI Tools</h2>
+        <div class="flex justify-center space-x-6">
+            <a href="https://quickdraw.withgoogle.com/" target="_blank" class="px-6 py-3 bg-blue-500 text-white font-bold rounded-lg hover:bg-blue-700">Quick, Draw!</a>
+            <a href="https://scratch.mit.edu/" target="_blank" class="px-6 py-3 bg-green-500 text-white font-bold rounded-lg hover:bg-green-700">Scratch</a>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            { question: "What is AI bias?", options: ["A fair AI decision", "An AI system showing favoritism", "A new AI feature"], answer: 1 },
+            { question: "Should AI always replace human jobs?", options: ["Yes", "No", "Only in some cases"], answer: 1 },
+            { question: "What is an example of AI in daily life?", options: ["Smartphones", "Plants", "Books"], answer: 0 },
+            { question: "What does AI stand for?", options: ["Artificial Intelligence", "Animal Information", "Art Ideas"], answer: 0 },
+            { question: "What is machine learning?", options: ["A human learning method", "An AI learning technique", "A new video game"], answer: 1 },
+            { question: "What is the Turing test?", options: ["A test for human intelligence", "A test to measure AI ability", "A computer game"], answer: 1 },
+            { question: "Can AI recognize emotions?", options: ["Yes", "No", "Only in some cases"], answer: 0 },
+            { question: "What is the purpose of neural networks?", options: ["To mimic human brain functions", "To generate random numbers", "To play games"], answer: 0 },
+            { question: "What does the term 'Big Data' mean?", options: ["Large amounts of data", "Data stored in a small database", "A new technology"], answer: 0 },
+            { question: "Which of these is an AI assistant?", options: ["Siri", "Alexa", "Both"], answer: 2 },
+        ];
+
+        let currentQuestion = 0;
+        let lives = 3; // number of lives
+        let totalQuestions = questions.length; // total number of questions
+        let timer;
+
+        function loadQuestion() {
+            if (currentQuestion >= totalQuestions) {
+                document.getElementById("quiz-container").innerHTML = `  
+                    <h2 class='text-3xl font-bold text-yellow-600'>Quiz Complete! 🎉</h2>
+                    <p class='text-lg'>Great job! You finished the quiz with ${lives} hearts left.</p>
+                    <button onclick="updateLeaderboard()" class="mt-4 px-6 py-3 bg-green-500 text-white font-bold rounded-lg">Submit Score</button>
+                `;
+                return;
+            }
+
+            startTimer(); // Start the timer
+
+            const questionElement = document.querySelector(".question");
+            const optionsElement = document.getElementById("options");
+
+            questionElement.textContent = questions[currentQuestion].question;
+            optionsElement.innerHTML = "";
+
+            questions[currentQuestion].options.forEach((option, index) => {
+                const button = document.createElement("button");
+                button.textContent = option;
+                button.classList.add(
+                    "px-6",
+                    "py-3",
+                    "bg-blue-500",
+                    "text-white",
+                    "font-bold",
+                    "rounded-lg",
+                    "m-2",
+                    "hover:bg-blue-700",
+                    "transition-all"
+                );
+                button.onclick = () => checkAnswer(index, button);
+                optionsElement.appendChild(button);
+            });
+
+            const progressFill = document.getElementById("progress-fill");
+            progressFill.style.width = ((currentQuestion / totalQuestions) * 100) + "%";
+        }
+
+        function startTimer() {
+            let timeRemaining = 15;
+            document.getElementById("timer").textContent = `Time Left: ${timeRemaining}s`;
+
+            timer = setInterval(() => {
+                timeRemaining--;
+                document.getElementById("timer").textContent = `Time Left: ${timeRemaining}s`;
+                if (timeRemaining <= 0) {
+                    clearInterval(timer);
+                    handleTimeout();
+                }
+            }, 1000);
+        }
+
+        function handleTimeout() {
+            alert("Time's up! Moving to the next question.");
+            currentQuestion++;
+            loadQuestion();
+        }
+
+        function checkAnswer(selectedIndex, button) {
+            clearInterval(timer); // Stop the timer
+            if (selectedIndex === questions[currentQuestion].answer) {
+                button.classList.add("bg-green-500");
+                setTimeout(() => {
+                    currentQuestion++;
+                    if (lives < 3) lives++;
+                    updateHearts();
+                    loadQuestion();
+                }, 1000);
+            } else {
+                button.classList.add("bg-red-500");
+                lives--;
+                updateHearts();
+                if (lives === 0) {
+                    document.getElementById("quiz-container").innerHTML = `
+                        <h2 class='text-3xl font-bold text-red-600'>Game Over! ❌</h2>
+                        <p class='text-lg'>You answered ${currentQuestion} questions correctly.</p>
+                    `;
+                }
+            }
+        }
+
+        function updateHearts() {
+            const heartsElement = document.getElementById("hearts");
+            let hearts = "❤".repeat(lives) + "🤍".repeat(3 - lives);
+            heartsElement.textContent = hearts;
+        }
+
+        function startQuiz() {
+            loadQuestion();
+        }
+
+        function updateLeaderboard() {
+            const leaderboard = JSON.parse(localStorage.getItem("leaderboard")) || [];
+            const playerName = prompt("Enter your name for the leaderboard:");
+            leaderboard.push({ name: playerName, score: currentQuestion });
+            leaderboard.sort((a, b) => b.score - a.score); // Sort by score in descending order
+            localStorage.setItem("leaderboard", JSON.stringify(leaderboard));
+
+            const leaderboardList = document.getElementById("leaderboard-list");
+            leaderboardList.innerHTML = leaderboard.map((entry, index) => `
+                <li class="py-2">${index + 1}. ${entry.name}: ${entry.score} points</li>
+            `).join('');
+        }
+
+        AOS.init();
+
+        document.getElementById('menu-toggle').addEventListener('click', function () {
+            document.getElementById('menu').classList.toggle('show');
+        });
+
+        document.getElementById('theme-toggle').addEventListener('click', function () {
+            const theme = document.getElementById('theme');
+            if (theme.classList.contains('bg-blue-50')) {
+                theme.classList.replace('bg-blue-50', 'bg-gray-900');
+                theme.classList.replace('text-gray-800', 'text-gray-200');
+                this.textContent = '🌞';
+            } else {
+                theme.classList.replace('bg-gray-900', 'bg-blue-50');
+                theme.classList.replace('text-gray-200', 'text-gray-800');
+                this.textContent = '🌙';
+            }
+        });
+    </script>
+</body>
+</html>

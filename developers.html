@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meet the Developers - MorAI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        #menu {
+            position: absolute;
+            top: 60px;
+            right: 0;
+            background: rgba(140, 248, 113, 0.9);
+            border-radius: 10px;
+            display: none;
+            z-index: 100;
+        }
+
+        #menu.show {
+            display: block;
+        }
+
+        .hover-bg {
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .hover-bg:hover {
+            background-color: #f6c444;
+        }
+
+        .button-style {
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .button-style:hover {
+            transform: scale(1.1);
+        }
+
+        .faq-question {
+            margin-top: 16px;
+            font-weight: 600;
+            color: #3b3b3b;
+        }
+
+        .faq-answer {
+            margin-top: 8px;
+            color: #555;
+        }
+    </style>
+</head>
+<body class="bg-blue-50 text-gray-800 transition-colors duration-300" id="theme">
+
+    <!-- Header -->
+    <header class="p-6 bg-yellow-400 shadow-lg flex justify-between items-center relative rounded-b-3xl">
+        <img src="icon2.png" alt="MorAI Logo" class="h-11">
+        <div class="flex items-center space-x-6">
+            <button id="theme-toggle" class="text-2xl text-gray-800 focus:outline-none">🌙</button>
+            <button id="menu-toggle" class="text-2xl text-gray-800 focus:outline-none">☰</button>
+        </div>
+        <nav id="menu" class="p-4 w-48 shadow-lg rounded-lg">
+            <ul class="flex flex-col space-y-3">
+                <li><a href="index.html" class="hover:text-pink-500 block">Home</a></li>
+                <li><a href="game.html" class="hover:text-pink-500 block">morAI's Lab</a></li>
+                <li><a href="quiz.html" class="hover:text-pink-500 block">morAI's Tale</a></li>
+                <li><a href="developers.html" class="hover:text-pink-500 block">Meet the Developers</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="text-center py-16 px-4" data-aos="fade-up">
+        <div class="flex justify-center items-center space-x-6">
+            <!-- MorAI's Photo -->
+            <img src="Gemini_Generated_Image.png" alt="MorAI" class="w-32 h-32 rounded-full shadow-lg">
+            <div>
+                <h2 class="text-5xl font-extrabold text-yellow-600">Welcome to morAI!</h2>
+                <p class="mt-4 text-lg text-WHITE-700">Meet the Developers!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Developers Section -->
+    <section class="py-12 px-6 grid gap-6 md:grid-cols-2 lg:grid-cols-4 text-center" data-aos="fade-up">
+        <div class="p-6 bg-yellow-300 rounded-lg shadow-lg hover:bg-yellow-500 transition-all duration-300">
+            <h3 class="text-2xl font-bold text-WHITE-600">LORA</h3>
+            <p class="mt-2 text-gray-700">PROMPT EXPERT</p>
+            <img src="lauragif.gif" alt="LAURA" class="w-32 h-32 rounded-full mx-auto mt-4 shadow-lg">
+        </div>
+        <div class="p-6 bg-pink-300 rounded-lg shadow-lg hover:bg-pink-500 transition-all duration-300">
+            <h3 class="text-2xl font-bold text-WHITE-600">AYAAN</h3>
+            <p class="mt-2 text-gray-700">LEAD PROGRAMMER</p>
+            <img src="ayaangif.gif" alt="AYAAN" class="w-32 h-32 rounded-full mx-auto mt-4 shadow-lg">
+        </div>
+        <div class="p-6 bg-blue-300 rounded-lg shadow-lg hover:bg-blue-500 transition-all duration-300">
+            <h3 class="text-2xl font-bold text-WHITE-600">WADEEA</h3>
+            <p class="mt-2 text-gray-700">CREATIVE DIRECTOR</p>
+            <img src="deagif.gif" alt="WADEEA" class="w-32 h-32 rounded-full mx-auto mt-4 shadow-lg">
+        </div>
+        <div class="p-6 bg-green-300 rounded-lg shadow-lg hover:bg-green-500 transition-all duration-300">
+            <h3 class="text-2xl font-bold text-WHITE-600">NAHLA</h3>
+            <p class="mt-2 text-gray-700">AI EXPERT</p>
+            <img src="nahlagif (2).gif" alt="NAHLA" class="w-32 h-32 rounded-full mx-auto mt-4 shadow-lg">
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-12 px-6 text-center">
+        <h2 class="text-3xl font-bold text-yellow-600">Frequently Asked Questions about Responsible Use of AI</h2>
+        <div class="mt-4 text-lg text-BLACK-700">
+            <div data-aos="fade-up" data-aos-duration="1000">
+                <p class="faq-question">1. Why do we need to be careful with AI?</p>
+                <p class="faq-answer">AI can be helpful, but it can also be unfair or used in harmful ways if we’re not careful.</p>
+            </div>
+            <div data-aos="fade-up" data-aos-duration="1200">
+                <p class="faq-question">2. Can AI be biased?</p>
+                <p class="faq-answer">Yes, AI can be unfair if it learns from bad or one-sided information.</p>
+            </div>
+            <div data-aos="fade-up" data-aos-duration="1400">
+                <p class="faq-question">3. How can we make AI fair for everyone?</p>
+                <p class="faq-answer">We need to check AI’s decisions and make sure it treats all people equally.</p>
+            </div>
+            <div data-aos="fade-up" data-aos-duration="1600">
+                <p class="faq-question">4. Should AI be allowed to make big decisions by itself?</p>
+                <p class="faq-answer">No, humans should always be in charge of important decisions, like in medicine or law.</p>
+            </div>
+            <div data-aos="fade-up" data-aos-duration="1800">
+                <p class="faq-question">5. Can AI hurt people’s feelings?</p>
+                <p class="faq-answer">Yes, if AI spreads mean or false information, it can hurt people emotionally.</p>
+            </div>
+            <div data-aos="fade-up" data-aos-duration="2000">
+                <p class="faq-question">6. Should AI be used to spy on people?</p>
+                <p class="faq-answer">No, people have a right to privacy, and AI should respect that.</p>
+            </div>
+            <div data-aos="fade-up" data-aos-duration="2200">
+                <p class="faq-question">7. Can AI be used to spread lies?</p>
+                <p class="faq-answer">Yes, AI can create fake news, so we should always check if information is true.</p>
+            </div>
+            <div data-aos="fade-up" data-aos-duration="2400">
+                <p class="faq-question">8. Who is responsible when AI makes a mistake?</p>
+                <p class="faq-answer">The people who create and use AI are responsible for fixing its mistakes.</p>
+            </div>
+            <div data-aos="fade-up" data-aos-duration="2600">
+                <p class="faq-question">9. Can AI help stop online bullying?</p>
+                <p class="faq-answer">Yes, AI can detect mean messages and help keep the internet safe.</p>
+            </div>
+            <div data-aos="fade-up" data-aos-duration="2800">
+                <p class="faq-question">10. What happens if AI is used in a bad way?</p>
+                <p class="faq-answer">It can cause harm, so rules and laws help make sure AI is used responsibly.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center py-8 bg-yellow-400">
+        <p class="text-gray-800">&copy; 2025 morAI. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        AOS.init();
+
+        // Mobile Menu Toggle
+        document.getElementById('menu-toggle').addEventListener('click', function () {
+            document.getElementById('menu').classList.toggle('show');
+        });
+
+        // Toggle Dark/Light Mode
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.getElementById('theme');
+
+        themeToggle.addEventListener('click', function () {
+            if (body.classList.contains('bg-blue-50')) {
+                body.classList.remove('bg-blue-50', 'text-gray-800');
+                body.classList.add('bg-gray-900', 'text-white');
+                themeToggle.textContent = '🌞';
+            } else {
+                body.classList.remove('bg-gray-900', 'text-white');
+                body.classList.add('bg-blue-50', 'text-gray-800');
+                themeToggle.textContent = '🌙';
+            }
+        });
+    </script>
+
+</body>
+</html>

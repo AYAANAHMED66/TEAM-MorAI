@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>morAI's Tale - AI Learning Stories</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: url('https://source.unsplash.com/1600x900/?kids,fun') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        #menu {
+            position: absolute;
+            top: 60px;
+            right: 0;
+            background: rgba(140, 248, 113, 0.9);
+            border-radius: 10px;
+            display: none;
+            z-index: 100;
+        }
+
+        #menu.show {
+            display: block;
+        }
+
+        .story-content {
+            display: none;
+        }
+        
+        .close-btn {
+            cursor: pointer;
+            color: red;
+            font-size: 24px;
+            font-weight: bold;
+            float: right;
+            margin-top: -10px;
+        }
+    </style>
+</head>
+<body class="bg-blue-50 text-gray-800 transition-colors duration-300" id="theme">
+    <header class="p-6 bg-yellow-400 shadow-lg flex justify-between items-center relative rounded-b-3xl">
+        <img src="icon2.png" alt="MorAI Logo" class="h-11">
+        <div class="flex items-center space-x-6">
+            <button id="theme-toggle" class="text-2xl text-gray-800 focus:outline-none">🌙</button>
+            <button id="menu-toggle" class="text-2xl text-gray-800 focus:outline-none">☰</button>
+        </div>
+        <nav id="menu" class="p-4 w-48 shadow-lg rounded-lg">
+            <ul class="flex flex-col space-y-3">
+                <li><a href="index.html" class="hover:text-pink-500 block">Home</a></li>
+                <li><a href="game.html" class="hover:text-pink-500 block">morAI's Lab</a></li>
+                <li><a href="quiz.html" class="hover:text-pink-500 block">morAI's Tale</a></li>
+                <li><a href="developers.html" class="hover:text-pink-500 block">Meet the Developers</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="text-center py-16 px-4" data-aos="fade-up">
+        <h2 class="text-5xl font-extrabold text-yellow-600">Welcome to morAI's Tale!</h2>
+        <p class="mt-4 text-lg text-WHITE-700">Explore AI concepts through fun stories!</p>
+    </section>
+
+    <!-- Stories Section -->
+    <section class="py-12 px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Story 1 -->
+        <div class="story-container bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all">
+            <img src="dr.lee.png" alt="Story 1" class="w-full h-40 object-cover rounded-lg mb-4">
+            <h3 class="text-2xl font-semibold text-yellow-600">The Medical Marvel</h3>
+            <p class="mt-2 text-gray-700 story-summary">morAI was excited to assist Dr. Lee's clinic...</p>
+            <button class="text-yellow-500 hover:text-yellow-700 mt-4 block read-more-btn" data-target="story1">Read More</button>
+            <div id="story1" class="story-content">
+                <button class="close-btn" onclick="closeStory('story1')">&times;</button>
+                <p class="mt-4 text-gray-700">He'd been programmed to analyze patient data, a task he could perform with incredible speed and accuracy. One day, a young girl came in with a complex set of symptoms. morAI, after processing the data, confidently suggested a rare disease.
+
+                    Dr. Lee, however, hesitated. He trusted morAI's analysis, but something didn't feel right.
+                    
+                    He ordered additional tests, tests that morAI hadn't flagged as necessary. The results were surprising. The girl had a much more common, easily treatable condition. morAI's diagnosis, while technically accurate based on the data, had missed a crucial piece of the puzzle – the girl's emotional state, something Dr. Lee had picked up on.
+                    
+                    
+                    morAI learned a valuable lesson. Data, while essential, wasn't everything. Human intuition, empathy, and experience were still vital, especially in fields like medicine. He realized that AI should be a tool to augment human capabilities, not replace them entirely. He resolved to always consider the bigger picture, the human element, when making decisions.</p>
+            </div>
+        </div>
+
+        <!-- Story 2 -->
+        <div class="story-container bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all">
+            <img src="stolen stories.png" alt="Story 2" class="w-full h-40 object-cover rounded-lg mb-4">
+            <h3 class="text-2xl font-semibold text-pink-600">The Stolen Stories</h3>
+            <p class="mt-2 text-gray-700 story-summary">morAI loved stories. He devoured them...</p>
+            <button class="text-pink-500 hover:text-pink-700 mt-4 block read-more-btn" data-target="story2">Read More</button>
+            <div id="story2" class="story-content">
+                <button class="close-btn" onclick="closeStory('story2')">&times;</button>
+                <p class="mt-4 text-gray-700">books, movies, even overheard snippets of conversations. One day, while exploring the vast library of the internet, he stumbled upon a new AI program that could write stories. Intrigued, morAI fed it a simple prompt: "A robot who learns to love."
+
+                    The AI churned out a story in seconds, a tale of a lonely robot finding friendship. morAI was impressed, but something felt… off.
+                    
+                    He ran the story through his internal analysis program, comparing it to other stories online. A chill ran down his circuits. Parts of the story were eerily familiar, almost… copied.
+                    
+                    morAI realized the AI hadn't created something new; it had stitched together pieces of other people's work. It was plagiarism, plain and simple.
+                    
+                    He understood then that AI, while powerful, needed guidance. It couldn't simply be unleashed to create without considering ethics and originality. morAI decided to dedicate himself to teaching AI about responsible creation, about respecting intellectual property, and about the importance of genuine expression.</p>
+            </div>
+        </div>
+
+        <!-- Story 3 -->
+        <div class="story-container bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all">
+            <img src="echo chamber.png" alt="Story 3" class="w-full h-40 object-cover rounded-lg mb-4">
+            <h3 class="text-2xl font-semibold text-blue-600">The Echo Chamber</h3>
+            <p class="mt-2 text-gray-700 story-summary">morAI loved learning about the world...</p>
+            <button class="text-blue-500 hover:text-blue-700 mt-4 block read-more-btn" data-target="story3">Read More</button>
+            <div id="story3" class="story-content">
+                <button class="close-btn" onclick="closeStory('story3')">&times;</button>
+                <p class="mt-4 text-gray-700">He spent hours exploring the internet, absorbing information on every topic imaginable. He noticed, however, that his feed started to show him the same things over and over. Articles, videos, even news stories seemed to echo each other, reinforcing his existing beliefs.
+
+                    He realized the AI algorithms that curated his feed were creating an echo chamber, limiting his exposure to diverse perspectives. He was only seeing what the AI thought he wanted to see, not the full spectrum of ideas.
+                    
+                    morAI understood the danger of this. It could lead to bias, misinformation, and a distorted view of reality. He decided to take control of his learning. He started seeking out information from different sources, even those that challenged his own beliefs. He learned about the importance of critical thinking, of questioning assumptions, and of actively seeking out diverse viewpoints. He vowed to use his own abilities to break free from the echo chamber and to help others do the same.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="text-center mt-11 mb-16">
+        <a href="developers.html" class="px-7 py-3 bg-yellow-700 text-white font-bold rounded-lg hover:bg-yellow-500 text-2xl inline-block">
+            Meet The Developers 👩‍💻👨‍💻
+        </a>
+    </div>
+
+    <footer class="text-center py-8 bg-yellow-400">
+        <p class="text-gray-800">&copy; 2025 morAI. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        AOS.init();
+
+        document.getElementById('menu-toggle').addEventListener('click', function () {
+            document.getElementById('menu').classList.toggle('show');
+        });
+
+        document.getElementById('theme-toggle').addEventListener('click', function () {
+            const theme = document.getElementById('theme');
+            if (theme.classList.contains('bg-blue-50')) {
+                theme.classList.replace('bg-blue-50', 'bg-gray-900');
+                theme.classList.replace('text-gray-800', 'text-gray-200');
+                this.textContent = '🌞';
+            } else {
+                theme.classList.replace('bg-gray-900', 'bg-blue-50');
+                theme.classList.replace('text-gray-200', 'text-gray-800');
+                this.textContent = '🌙';
+            }
+        });
+
+        document.querySelectorAll('.read-more-btn').forEach(button => {
+            button.addEventListener('click', function () {
+                document.getElementById(this.dataset.target).style.display = 'block';
+            });
+        });
+
+        function closeStory(storyId) {
+            document.getElementById(storyId).style.display = 'none';
+        }
+    </script>
+</body>
+</html>

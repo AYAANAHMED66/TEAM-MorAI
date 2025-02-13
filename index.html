@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MorAI - AI Learning for Kids</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+    font-family: 'Poppins', sans-serif;
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+#menu {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: rgba(140, 248, 113, 0.9);
+    border-radius: 10px;
+    display: none;
+    z-index: 100;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+#menu.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hover-bg {
+    transition: background-color 0.3s ease-in-out;
+}
+
+.hover-bg:hover {
+    background-color: #f6c444;
+}
+
+.button-style {
+    transition: transform 0.2s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.button-style:hover {
+    transform: scale(1.1);
+    background-color: #e5b82c;
+}
+
+header {
+    transition: background-color 0.5s ease-in-out;
+}
+
+.dark-mode {
+    background-color: #1a1a2e !important;
+    color: white !important;
+}
+
+.dark-mode header {
+    background-color: #16213e !important;
+}
+
+.dark-mode #menu {
+    background: rgba(50, 50, 50, 0.9);
+}
+
+.dark-mode .button-style {
+    background-color: #007bff;
+}
+
+.dark-mode .button-style:hover {
+    background-color: #0056b3;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .card {
+    background: #222831;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+}
+
+footer {
+    transition: background-color 0.5s ease-in-out;
+}
+
+.dark-mode footer {
+    background-color: #16213e;
+    color: #f5f5f5;
+}
+</style>
+</head>
+<body class="bg-blue-50 text-gray-800 transition-colors duration-300" id="theme">
+    
+    <!-- Header -->
+    <header class="p-6 bg-yellow-400 shadow-lg flex justify-between items-center relative rounded-b-3xl">
+        <img src="icon2.png" alt="MorAI Logo" class="h-11">
+        <div class="flex items-center space-x-6">
+            <button id="theme-toggle" class="text-2xl text-gray-800 focus:outline-none">🌙</button>
+            <button id="menu-toggle" class="text-2xl text-gray-800 focus:outline-none">☰</button>
+        </div>
+        <nav id="menu" class="p-4 w-48 shadow-lg rounded-lg">
+            <ul class="flex flex-col space-y-3">
+                <li><a href="index.html" class="hover:text-pink-500 block">Home</a></li>
+                <li><a href="game.html" class="hover:text-pink-500 block">morAI's Lab</a></li>
+                <li><a href="quiz.html" class="hover:text-pink-500 block">morAI's Tale</a></li>
+                <li><a href="developers.html" class="hover:text-pink-500 block">Meet the Developers</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="text-center py-16 px-4" data-aos="fade-up">
+        <div class="flex justify-center items-center space-x-6">
+            <!-- MorAI's Photo -->
+            <img src="Gemini_Generated_Image.png" alt="MorAI" class="w-32 h-32 rounded-full shadow-lg">
+            <div>
+                <h2 class="text-5xl font-extrabold text-yellow-600">Welcome to morAI!</h2>
+                <p class="mt-4 text-lg text-WHITE-700">Learn about AI through fun games and quizzes!</p>
+            </div>
+        </div>
+        <div class="mt-8 flex flex-col space-y-6">
+            <a href="game.html" class="px-8 py-4 bg-yellow-500 hover-bg text-white font-bold rounded-lg button-style">MorAI's Lab</a>
+            <a href="quiz.html" class="px-8 py-4 bg-pink-500 hover-bg text-white font-bold rounded-lg button-style">MorAI's Tale</a>
+        </div>
+    </section>
+    
+    <!-- Video Section -->
+    <section class="text-center py-14 px-6" data-aos="fade-up">
+        <h3 class="text-4xl font-bold text-blue-600">Watch & Learn</h3>
+        <p class="mt-6 text-WHITE-700">Explore AI concepts through this fun video!</p>
+        <div class="mt-6 flex justify-center">
+            <video width="650" controls>
+                <source src="homepagevideo.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </section>
+
+    <!-- Principles of Responsible AI Section -->
+    <section class="py-12 px-6 bg-gray-100 text-center" data-aos="fade-up">
+        <h3 class="text-4xl font-bold text-blue-600">Principles of Responsible AI</h3>
+        <p class="mt-4 text-gray-700">Here are the key principles to ensure AI is developed and used responsibly.</p>
+        <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            <!-- Principle 1 -->
+            <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all">
+                <h4 class="text-2xl font-semibold text-yellow-600">Fairness</h4>
+                <p class="mt-2 text-gray-700">AI should be unbiased and treat all individuals and groups fairly.</p>
+            </div>
+            <!-- Principle 2 -->
+            <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all">
+                <h4 class="text-2xl font-semibold text-pink-600">Transparency</h4>
+                <p class="mt-2 text-gray-700">AI's decision-making processes should be clear and understandable.</p>
+            </div>
+            <!-- Principle 3 -->
+            <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all">
+                <h4 class="text-2xl font-semibold text-blue-600">Safety</h4>
+                <p class="mt-2 text-gray-700">AI systems should not pose harm to individuals, society, or the environment.</p>
+            </div>
+            <!-- Principle 4 -->
+            <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all">
+                <h4 class="text-2xl font-semibold text-green-600">Privacy</h4>
+                <p class="mt-2 text-gray-700">AI should respect and protect user data and privacy.</p>
+            </div>
+            <!-- Principle 5 -->
+            <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all">
+                <h4 class="text-2xl font-semibold text-yellow-600">Accountability</h4>
+                <p class="mt-2 text-gray-700">Humans should take responsibility for AI's actions and decisions.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="text-center py-8 bg-yellow-400">
+        <p class="text-gray-800">&copy; 2025 morAI. All Rights Reserved.</p>
+    </footer>
+    
+    <script>
+        AOS.init();
+        
+        document.getElementById('menu-toggle').addEventListener('click', function () {
+            document.getElementById('menu').classList.toggle('show');
+        });
+        
+        // Toggle Dark/Light Mode
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.getElementById('theme');
+        
+        themeToggle.addEventListener('click', function () {
+            if (body.classList.contains('bg-blue-50')) {
+                body.classList.remove('bg-blue-50', 'text-gray-800');
+                body.classList.add('bg-gray-900', 'text-white');
+                themeToggle.textContent = '🌞';
+            } else {
+                body.classList.remove('bg-gray-900', 'text-white');
+                body.classList.add('bg-blue-50', 'text-gray-800');
+                themeToggle.textContent = '🌙';
+            }
+        });
+    </script>
+</body>
+</html>
